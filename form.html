@@ -35,12 +35,13 @@
         <div class="form-progress fade-in">
             <div class="progress-step active" data-step="1"><div class="step-circle">1</div><div class="step-text">Data Diri</div></div>
             <div class="progress-step" data-step="2"><div class="step-circle">2</div><div class="step-text">Data Akademik</div></div>
-            <div class="progress-step" data-step="3"><div class="step-circle">3</div><div class="step-text">Konfirmasi</div></div>
+            <div class="progress-step" data-step="3"><div class="step-circle">3</div><div class="step-text">Upload Berkas</div></div>
+            <div class="progress-step" data-step="4"><div class="step-circle">4</div><div class="step-text">Konfirmasi</div></div>
         </div>
 
         <div class="form-container-modern fade-in">
             <form id="registrationForm">
-                <!-- Data Diri -->
+                <!-- Step 1: Data Diri -->
                 <div class="form-step active" id="step1">
                     <h3>Data Diri Calon Siswa</h3>
                     <div class="form-row">
@@ -58,7 +59,7 @@
                     <div class="form-navigation"><button type="button" class="btn-next" data-next="2">Selanjutnya</button></div>
                 </div>
 
-                <!-- Data Akademik -->
+                <!-- Step 2: Data Akademik -->
                 <div class="form-step" id="step2">
                     <h3>Data Akademik & Pendaftaran</h3>
                     <div class="form-group"><label for="jalur">Jalur Pendaftaran <span class="required">*</span></label><select id="jalur"><option value="">-- Pilih Jalur --</option><option value="Zonasi">Zonasi (Domisili)</option><option value="Prestasi">Prestasi Akademik</option><option value="Afirmasi">Afirmasi</option><option value="Perpindahan">Perpindahan Orang Tua</option></select><div class="input-feedback"></div></div>
@@ -68,15 +69,64 @@
                     <div class="form-navigation"><button type="button" class="btn-prev" data-prev="1">Sebelumnya</button><button type="button" class="btn-next" data-next="3">Selanjutnya</button></div>
                 </div>
 
-                <!-- Konfirmasi -->
+                <!-- Step 3: Upload Berkas dengan Preview -->
                 <div class="form-step" id="step3">
+                    <h3>Upload Berkas</h3>
+                    <div class="form-group">
+                        <label for="foto">Foto Terbaru (3x4)</label>
+                        <input type="file" id="foto" accept="image/jpeg, image/png, image/jpg">
+                        <div class="preview-container" id="fotoPreview">
+                            <img id="fotoImg" src="#" alt="Preview Foto">
+                        </div>
+                        <small class="form-hint">Format: JPG, PNG. Maks 2MB</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="ijazah">Ijazah / SKL</label>
+                        <input type="file" id="ijazah" accept="image/jpeg, image/png, image/jpg, application/pdf">
+                        <div class="preview-container" id="ijazahPreview">
+                            <img id="ijazahImg" src="#" alt="Preview Ijazah">
+                        </div>
+                        <small class="form-hint">Format: JPG, PNG, PDF. Maks 2MB</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="kk">Kartu Keluarga</label>
+                        <input type="file" id="kk" accept="image/jpeg, image/png, image/jpg, application/pdf">
+                        <div class="preview-container" id="kkPreview">
+                            <img id="kkImg" src="#" alt="Preview KK">
+                        </div>
+                        <small class="form-hint">Format: JPG, PNG, PDF. Maks 2MB</small>
+                    </div>
+                    <div class="form-navigation"><button type="button" class="btn-prev" data-prev="2">Sebelumnya</button><button type="button" class="btn-next" data-next="4">Selanjutnya</button></div>
+                </div>
+
+                <!-- Step 4: Konfirmasi -->
+                <div class="form-step" id="step4">
                     <h3>Konfirmasi Data</h3>
-                    <div class="data-preview">
-                        <div class="preview-section"><h4>Data Diri</h4><div class="preview-item"><span class="preview-label">Nama Lengkap:</span><span class="preview-value" id="preview_nama">-</span></div><div class="preview-item"><span class="preview-label">NIK:</span><span class="preview-value" id="preview_nik">-</span></div><div class="preview-item"><span class="preview-label">Tempat/Tgl Lahir:</span><span class="preview-value" id="preview_lahir">-</span></div></div>
-                        <div class="preview-section"><h4>Data Pendaftaran</h4><div class="preview-item"><span class="preview-label">Jalur:</span><span class="preview-value" id="preview_jalur">-</span></div><div class="preview-item"><span class="preview-label">Asal Sekolah:</span><span class="preview-value" id="preview_sekolah">-</span></div></div>
+                    <div class="data-preview" id="printArea">
+                        <div class="preview-section"><h4>Data Diri</h4>
+                            <div class="preview-item"><span class="preview-label">Nama Lengkap:</span><span class="preview-value" id="preview_nama">-</span></div>
+                            <div class="preview-item"><span class="preview-label">NIK:</span><span class="preview-value" id="preview_nik">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Tempat/Tgl Lahir:</span><span class="preview-value" id="preview_lahir">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Jenis Kelamin:</span><span class="preview-value" id="preview_gender">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Agama:</span><span class="preview-value" id="preview_agama">-</span></div>
+                        </div>
+                        <div class="preview-section"><h4>Data Pendaftaran</h4>
+                            <div class="preview-item"><span class="preview-label">Jalur:</span><span class="preview-value" id="preview_jalur">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Asal Sekolah:</span><span class="preview-value" id="preview_sekolah">-</span></div>
+                            <div class="preview-item"><span class="preview-label">NISN:</span><span class="preview-value" id="preview_nisn">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Prestasi:</span><span class="preview-value" id="preview_prestasi">-</span></div>
+                        </div>
+                        <div class="preview-section"><h4>Berkas yang Diupload</h4>
+                            <div class="preview-item"><span class="preview-label">Foto:</span><span class="preview-value" id="preview_foto">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Ijazah/SKL:</span><span class="preview-value" id="preview_ijazah">-</span></div>
+                            <div class="preview-item"><span class="preview-label">Kartu Keluarga:</span><span class="preview-value" id="preview_kk">-</span></div>
+                        </div>
                     </div>
                     <div class="checkbox-group"><label class="checkbox-container"><input type="checkbox" id="confirmData"><span class="checkmark"></span>Saya menyatakan bahwa data yang saya isikan adalah benar</label></div>
-                    <div class="form-navigation"><button type="button" class="btn-prev" data-prev="2">Sebelumnya</button><button type="button" id="submitBtn" class="btn-submit-modern" disabled>Kirim Pendaftaran</button></div>
+                    <div class="form-navigation">
+                        <button type="button" class="btn-prev" data-prev="3">Sebelumnya</button>
+                        <button type="button" id="submitBtn" class="btn-submit-modern" disabled>Kirim Pendaftaran</button>
+                    </div>
                 </div>
             </form>
         </div>
