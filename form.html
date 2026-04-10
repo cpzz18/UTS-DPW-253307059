@@ -1,256 +1,98 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Pendaftaran - Sekolah Global Nusantara</title>
-    <link rel="stylesheet" href="asset/css/style.css" />
-  </head>
-  <body>
-    <div class="theme-switch-wrapper">
-      <span class="theme-icon">☀️</span>
-      <label class="theme-switch"
-        ><input type="checkbox" id="themeToggle" /><span
-          class="slider round"
-        ></span
-      ></label>
-      <span class="theme-icon">🌙</span>
-    </div>
-
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
     <header>
-      <div class="header-container">
-        <div class="logo-container">
-          <div class="logo-icon">SGN</div>
-          <div class="logo-text">
-            <h1>Sekolah Global Nusantara</h1>
-            <p>Mencetak Generasi Berwawasan Global</p>
-          </div>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo-icon">SGN</div>
+                <div class="logo-text">
+                    <h1>Sekolah Global Nusantara</h1>
+                    <p>Mencetak Generasi Berwawasan Global</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="alur.html">Alur Pendaftaran</a></li>
+                    <li><a href="form.html" class="active">Form Pendaftaran</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="alur.html">Alur Pendaftaran</a></li>
-            <li><a href="form.html" class="active">Form Pendaftaran</a></li>
-          </ul>
-        </nav>
-      </div>
     </header>
 
     <main>
-      <div class="page-header fade-in">
-        <h1>Formulir Pendaftaran</h1>
-        <p>
-          Isi data dengan lengkap dan benar untuk proses pendaftaran yang lancar
-        </p>
-      </div>
-
-      <div class="form-progress fade-in">
-        <div class="progress-step active" data-step="1">
-          <div class="step-circle">1</div>
-          <div class="step-text">Data Diri</div>
+        <div class="page-header fade-in">
+            <h1>Formulir Pendaftaran</h1>
+            <p>Isi data dengan lengkap dan benar untuk proses pendaftaran yang lancar</p>
         </div>
-        <div class="progress-step" data-step="2">
-          <div class="step-circle">2</div>
-          <div class="step-text">Data Akademik</div>
+
+        <div class="form-progress fade-in">
+            <div class="progress-step active" data-step="1"><div class="step-circle">1</div><div class="step-text">Data Diri</div></div>
+            <div class="progress-step" data-step="2"><div class="step-circle">2</div><div class="step-text">Data Akademik</div></div>
+            <div class="progress-step" data-step="3"><div class="step-circle">3</div><div class="step-text">Konfirmasi</div></div>
         </div>
-        <div class="progress-step" data-step="3">
-          <div class="step-circle">3</div>
-          <div class="step-text">Konfirmasi</div>
+
+        <div class="form-container-modern fade-in">
+            <form id="registrationForm">
+                <!-- Data Diri -->
+                <div class="form-step active" id="step1">
+                    <h3>Data Diri Calon Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group"><label for="fullname">Nama Lengkap <span class="required">*</span></label><input type="text" id="fullname" placeholder="Contoh: Ahmad Fauzan"><div class="input-feedback"></div></div>
+                        <div class="form-group"><label for="nik">NIK <span class="required">*</span></label><input type="text" id="nik" placeholder="16 digit angka" maxlength="16"><div class="input-feedback"></div></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="tempat_lahir">Tempat Lahir</label><input type="text" id="tempat_lahir" placeholder="Contoh: Jakarta"></div>
+                        <div class="form-group"><label for="tanggal_lahir">Tanggal Lahir</label><input type="date" id="tanggal_lahir"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="jenis_kelamin">Jenis Kelamin</label><select id="jenis_kelamin"><option value="">Pilih</option><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></div>
+                        <div class="form-group"><label for="agama">Agama</label><select id="agama"><option value="">Pilih</option><option value="Islam">Islam</option><option value="Kristen">Kristen</option><option value="Katolik">Katolik</option><option value="Hindu">Hindu</option><option value="Buddha">Buddha</option></select></div>
+                    </div>
+                    <div class="form-navigation"><button type="button" class="btn-next" data-next="2">Selanjutnya</button></div>
+                </div>
+
+                <!-- Data Akademik -->
+                <div class="form-step" id="step2">
+                    <h3>Data Akademik & Pendaftaran</h3>
+                    <div class="form-group"><label for="jalur">Jalur Pendaftaran <span class="required">*</span></label><select id="jalur"><option value="">-- Pilih Jalur --</option><option value="Zonasi">Zonasi (Domisili)</option><option value="Prestasi">Prestasi Akademik</option><option value="Afirmasi">Afirmasi</option><option value="Perpindahan">Perpindahan Orang Tua</option></select><div class="input-feedback"></div></div>
+                    <div class="form-group"><label for="asal_sekolah">Asal Sekolah</label><input type="text" id="asal_sekolah" placeholder="Nama SD/MI"></div>
+                    <div class="form-group"><label for="nisn">NISN</label><input type="text" id="nisn" placeholder="10 digit NISN" maxlength="10"></div>
+                    <div class="form-group"><label for="prestasi">Prestasi</label><textarea id="prestasi" rows="3" placeholder="Ceritakan prestasi yang pernah diraih..."></textarea></div>
+                    <div class="form-navigation"><button type="button" class="btn-prev" data-prev="1">Sebelumnya</button><button type="button" class="btn-next" data-next="3">Selanjutnya</button></div>
+                </div>
+
+                <!-- Konfirmasi -->
+                <div class="form-step" id="step3">
+                    <h3>Konfirmasi Data</h3>
+                    <div class="data-preview">
+                        <div class="preview-section"><h4>Data Diri</h4><div class="preview-item"><span class="preview-label">Nama Lengkap:</span><span class="preview-value" id="preview_nama">-</span></div><div class="preview-item"><span class="preview-label">NIK:</span><span class="preview-value" id="preview_nik">-</span></div><div class="preview-item"><span class="preview-label">Tempat/Tgl Lahir:</span><span class="preview-value" id="preview_lahir">-</span></div></div>
+                        <div class="preview-section"><h4>Data Pendaftaran</h4><div class="preview-item"><span class="preview-label">Jalur:</span><span class="preview-value" id="preview_jalur">-</span></div><div class="preview-item"><span class="preview-label">Asal Sekolah:</span><span class="preview-value" id="preview_sekolah">-</span></div></div>
+                    </div>
+                    <div class="checkbox-group"><label class="checkbox-container"><input type="checkbox" id="confirmData"><span class="checkmark"></span>Saya menyatakan bahwa data yang saya isikan adalah benar</label></div>
+                    <div class="form-navigation"><button type="button" class="btn-prev" data-prev="2">Sebelumnya</button><button type="button" id="submitBtn" class="btn-submit-modern" disabled>Kirim Pendaftaran</button></div>
+                </div>
+            </form>
         </div>
-      </div>
-
-      <div class="form-container-modern fade-in">
-        <form id="registrationForm">
-          <div class="form-step active" id="step1">
-            <h3>Data Diri Calon Siswa</h3>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fullname"
-                  >Nama Lengkap <span class="required">*</span></label
-                ><input
-                  type="text"
-                  id="fullname"
-                  placeholder="Contoh: Ahmad Fauzan"
-                />
-                <div class="input-feedback"></div>
-              </div>
-              <div class="form-group">
-                <label for="nik">NIK <span class="required">*</span></label
-                ><input
-                  type="text"
-                  id="nik"
-                  placeholder="16 digit angka"
-                  maxlength="16"
-                />
-                <div class="input-feedback"></div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="tempat_lahir">Tempat Lahir</label
-                ><input
-                  type="text"
-                  id="tempat_lahir"
-                  placeholder="Contoh: Jakarta"
-                />
-              </div>
-              <div class="form-group">
-                <label for="tanggal_lahir">Tanggal Lahir</label
-                ><input type="date" id="tanggal_lahir" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="jenis_kelamin">Jenis Kelamin</label
-                ><select id="jenis_kelamin">
-                  <option value="">Pilih</option>
-                  <option value="Laki-laki">Laki-laki</option>
-                  <option value="Perempuan">Perempuan</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="agama">Agama</label
-                ><select id="agama">
-                  <option value="">Pilih</option>
-                  <option value="Islam">Islam</option>
-                  <option value="Kristen">Kristen</option>
-                  <option value="Katolik">Katolik</option>
-                  <option value="Hindu">Hindu</option>
-                  <option value="Buddha">Buddha</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-navigation">
-              <button type="button" class="btn-next" data-next="2">
-                Selanjutnya
-              </button>
-            </div>
-          </div>
-
-          <div class="form-step" id="step2">
-            <h3>Data Akademik & Pendaftaran</h3>
-            <div class="form-group">
-              <label for="jalur"
-                >Jalur Pendaftaran <span class="required">*</span></label
-              ><select id="jalur">
-                <option value="">-- Pilih Jalur --</option>
-                <option value="Zonasi">Zonasi (Domisili)</option>
-                <option value="Prestasi">Prestasi Akademik</option>
-                <option value="Afirmasi">Afirmasi</option>
-                <option value="Perpindahan">Perpindahan Orang Tua</option>
-              </select>
-              <div class="input-feedback"></div>
-            </div>
-            <div class="form-group">
-              <label for="asal_sekolah">Asal Sekolah</label
-              ><input type="text" id="asal_sekolah" placeholder="Nama SD/MI" />
-            </div>
-            <div class="form-group">
-              <label for="nisn">NISN</label
-              ><input
-                type="text"
-                id="nisn"
-                placeholder="10 digit NISN"
-                maxlength="10"
-              />
-            </div>
-            <div class="form-group">
-              <label for="prestasi">Prestasi</label
-              ><textarea
-                id="prestasi"
-                rows="3"
-                placeholder="Ceritakan prestasi yang pernah diraih..."
-              ></textarea>
-            </div>
-            <div class="form-navigation">
-              <button type="button" class="btn-prev" data-prev="1">
-                Sebelumnya</button
-              ><button type="button" class="btn-next" data-next="3">
-                Selanjutnya
-              </button>
-            </div>
-          </div>
-
-          <div class="form-step" id="step3">
-            <h3>Konfirmasi Data</h3>
-            <div class="data-preview">
-              <div class="preview-section">
-                <h4>Data Diri</h4>
-                <div class="preview-item">
-                  <span class="preview-label">Nama Lengkap:</span
-                  ><span class="preview-value" id="preview_nama">-</span>
-                </div>
-                <div class="preview-item">
-                  <span class="preview-label">NIK:</span
-                  ><span class="preview-value" id="preview_nik">-</span>
-                </div>
-                <div class="preview-item">
-                  <span class="preview-label">Tempat/Tgl Lahir:</span
-                  ><span class="preview-value" id="preview_lahir">-</span>
-                </div>
-              </div>
-              <div class="preview-section">
-                <h4>Data Pendaftaran</h4>
-                <div class="preview-item">
-                  <span class="preview-label">Jalur:</span
-                  ><span class="preview-value" id="preview_jalur">-</span>
-                </div>
-                <div class="preview-item">
-                  <span class="preview-label">Asal Sekolah:</span
-                  ><span class="preview-value" id="preview_sekolah">-</span>
-                </div>
-              </div>
-            </div>
-            <div class="checkbox-group">
-              <label class="checkbox-container"
-                ><input type="checkbox" id="confirmData" /><span
-                  class="checkmark"
-                ></span
-                >Saya menyatakan bahwa data yang saya isikan adalah benar</label
-              >
-            </div>
-            <div class="form-navigation">
-              <button type="button" class="btn-prev" data-prev="2">
-                Sebelumnya</button
-              ><button
-                type="button"
-                id="submitBtn"
-                class="btn-submit-modern"
-                disabled
-              >
-                Kirim Pendaftaran
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
     </main>
 
     <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Sekolah Global Nusantara</h4>
-          <p>Membangun karakter unggul berwawasan global.</p>
+        <div class="footer-content">
+            <div class="footer-section"><h4>Sekolah Global Nusantara</h4><p>Membangun karakter unggul berwawasan global.</p></div>
+            <div class="footer-section"><h4>Kontak Kami</h4><p>Jl. Pendidikan No. 45, Jakarta Selatan</p><p>(021) 1234-5678</p><p>info@sekolahglobalnusantara.sch.id</p></div>
+            <div class="footer-section"><h4>Jam Operasional</h4><p>Senin - Jumat: 07:00 - 16:00</p><p>Sabtu: 08:00 - 12:00</p></div>
         </div>
-        <div class="footer-section">
-          <h4>Kontak Kami</h4>
-          <p>Jl. Pendidikan No. 45, Jakarta Selatan</p>
-          <p>(021) 1234-5678</p>
-          <p>info@sekolahglobalnusantara.sch.id</p>
-        </div>
-        <div class="footer-section">
-          <h4>Jam Operasional</h4>
-          <p>Senin - Jumat: 07:00 - 16:00</p>
-          <p>Sabtu: 08:00 - 12:00</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Sekolah Global Nusantara - All Rights Reserved</p>
-      </div>
+        <div class="footer-bottom"><p>&copy; 2026 Sekolah Global Nusantara - All Rights Reserved</p></div>
     </footer>
 
     <div id="toast" class="toast"></div>
 
     <script src="asset/javascript/script.js"></script>
-  </body>
+</body>
 </html>
