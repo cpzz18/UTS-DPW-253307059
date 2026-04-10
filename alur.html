@@ -8,7 +8,6 @@
   </head>
   <body>
     <header>
-      //test
       <div class="header-container">
         <div class="logo-container">
           <div class="logo-icon">SGN</div>
@@ -36,6 +35,7 @@
         </p>
       </div>
 
+      <!-- TIMELINE PROGRESS -->
       <div class="timeline-progress fade-in">
         <div class="timeline-step" data-step="1">
           <div class="step-icon">1</div>
@@ -63,129 +63,128 @@
         </div>
       </div>
 
-      <div class="alur-container fade-in">
-        <div class="illustration-box">
-          <div class="illustration-icon">📚</div>
-          <div class="illustration-icon">🎓</div>
-          <div class="illustration-icon">📝</div>
-          <div class="illustration-icon">✅</div>
-          <p class="illustration-text">
-            Proses Pendaftaran yang Mudah dan Cepat
-          </p>
-        </div>
+      <!-- GAMBAR ILUSTRASI (WAJIB dari asset/img/) -->
+      <div class="illustration-box fade-in">
+        <img
+          src="asset/img/logo.png"
+          alt="Ilustrasi Alur Pendaftaran Sekolah Global Nusantara"
+        />
+        <p class="illustration-text">Proses Pendaftaran yang Mudah dan Cepat</p>
+      </div>
 
-        <div class="alur-detail">
-          <div class="detail-card" data-step="1">
-            <div class="card-number">01</div>
-            <div class="card-content">
-              <h3>Registrasi Akun</h3>
-              <p>
-                Buat akun di portal PPDB menggunakan email aktif dan nomor
-                WhatsApp yang valid.
-              </p>
-              <div class="card-tip">
-                Gunakan email yang sering di cek untuk memudahkan komunikasi.
-              </div>
-            </div>
-          </div>
-          <div class="detail-card" data-step="2">
-            <div class="card-number">02</div>
-            <div class="card-content">
-              <h3>Isi Formulir Pendaftaran</h3>
-              <p>
-                Lengkapi data diri, pilih jalur pendaftaran (Zonasi, Prestasi,
-                atau Afirmasi).
-              </p>
-              <div class="card-tip">
-                Pastikan semua data sesuai dengan KTP dan Kartu Keluarga.
-              </div>
-            </div>
-          </div>
-          <div class="detail-card" data-step="3">
-            <div class="card-number">03</div>
-            <div class="card-content">
-              <h3>Verifikasi Berkas</h3>
-              <p>
-                Panitia akan memverifikasi kelengkapan berkas dalam waktu
-                maksimal 3x24 jam.
-              </p>
-              <div class="card-tip">
-                Cek status verifikasi secara berkala di dashboard anda.
-              </div>
-            </div>
-          </div>
-          <div class="detail-card" data-step="4">
-            <div class="card-number">04</div>
-            <div class="card-content">
-              <h3>Pembayaran Biaya Pendaftaran</h3>
-              <p>
-                Lakukan pembayaran melalui transfer bank atau virtual account
-                yang telah disediakan.
-              </p>
-              <div class="card-tip">Simpan bukti transfer sebagai arsip.</div>
-            </div>
-          </div>
-          <div class="detail-card" data-step="5">
-            <div class="card-number">05</div>
-            <div class="card-content">
-              <h3>Mengikuti Seleksi</h3>
-              <p>
-                Hadiri tes tulis, wawancara, dan tes bakat sesuai jadwal yang
-                telah ditentukan.
-              </p>
-              <div class="card-tip">Datang 15 menit sebelum jadwal.</div>
-            </div>
-          </div>
-          <div class="detail-card" data-step="6">
-            <div class="card-number">06</div>
-            <div class="card-content">
-              <h3>Daftar Ulang</h3>
-              <p>
-                Lakukan daftar ulang setelah dinyatakan lulus dan lakukan
-                pembayaran awal semester.
-              </p>
-              <div class="card-tip">
-                Perlengkapan sekolah gratis untuk 100 pendaftar pertama.
-              </div>
+      <!-- DETAIL CARD ALUR -->
+      <div class="alur-detail fade-in">
+        <div class="detail-card" data-step="1">
+          <div class="card-number">01</div>
+          <div class="card-content">
+            <h3>Registrasi Akun</h3>
+            <p>
+              Buat akun di portal PPDB menggunakan email aktif dan nomor
+              WhatsApp yang valid.
+            </p>
+            <div class="card-tip">
+              Gunakan email yang sering di cek untuk memudahkan komunikasi.
             </div>
           </div>
         </div>
-
-        <div class="info-accordion">
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Dokumen yang Diperlukan</span
-              ><span class="accordion-arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-              <ul>
-                <li>Fotokopi Akta Kelahiran (2 lembar)</li>
-                <li>Fotokopi Kartu Keluarga (2 lembar)</li>
-                <li>Fotokopi KTP Orang Tua (2 lembar)</li>
-                <li>Pas foto 3x4 (4 lembar)</li>
-                <li>Surat Keterangan Lulus SD/MI</li>
-                <li>Rapor kelas 4,5,6 (jalur prestasi)</li>
-              </ul>
+        <div class="detail-card" data-step="2">
+          <div class="card-number">02</div>
+          <div class="card-content">
+            <h3>Isi Formulir Pendaftaran</h3>
+            <p>
+              Lengkapi data diri, pilih jalur pendaftaran (Zonasi, Prestasi,
+              atau Afirmasi).
+            </p>
+            <div class="card-tip">
+              Pastikan semua data sesuai dengan KTP dan Kartu Keluarga.
             </div>
           </div>
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Pertanyaan Umum (FAQ)</span
-              ><span class="accordion-arrow">▼</span>
+        </div>
+        <div class="detail-card" data-step="3">
+          <div class="card-number">03</div>
+          <div class="card-content">
+            <h3>Verifikasi Berkas</h3>
+            <p>
+              Panitia akan memverifikasi kelengkapan berkas dalam waktu maksimal
+              3x24 jam.
+            </p>
+            <div class="card-tip">
+              Cek status verifikasi secara berkala di dashboard anda.
             </div>
-            <div class="accordion-content">
-              <div class="faq-item">
-                <strong>Apakah ada tes masuk?</strong>
-                <p>Ya, untuk semua jalur kecuali afirmasi.</p>
-              </div>
-              <div class="faq-item">
-                <strong>Kapan pengumuman hasil?</strong>
-                <p>18 Juli 2026 via website.</p>
-              </div>
-              <div class="faq-item">
-                <strong>Berapa biaya pendaftaran?</strong>
-                <p>Rp 250.000.</p>
-              </div>
+          </div>
+        </div>
+        <div class="detail-card" data-step="4">
+          <div class="card-number">04</div>
+          <div class="card-content">
+            <h3>Pembayaran Biaya Pendaftaran</h3>
+            <p>
+              Lakukan pembayaran melalui transfer bank atau virtual account yang
+              telah disediakan.
+            </p>
+            <div class="card-tip">Simpan bukti transfer sebagai arsip.</div>
+          </div>
+        </div>
+        <div class="detail-card" data-step="5">
+          <div class="card-number">05</div>
+          <div class="card-content">
+            <h3>Mengikuti Seleksi</h3>
+            <p>
+              Hadiri tes tulis, wawancara, dan tes bakat sesuai jadwal yang
+              telah ditentukan.
+            </p>
+            <div class="card-tip">Datang 15 menit sebelum jadwal.</div>
+          </div>
+        </div>
+        <div class="detail-card" data-step="6">
+          <div class="card-number">06</div>
+          <div class="card-content">
+            <h3>Daftar Ulang</h3>
+            <p>
+              Lakukan daftar ulang setelah dinyatakan lulus dan lakukan
+              pembayaran awal semester.
+            </p>
+            <div class="card-tip">
+              Perlengkapan sekolah gratis untuk 100 pendaftar pertama.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDION FAQ & DOKUMEN -->
+      <div class="info-accordion fade-in">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Dokumen yang Diperlukan</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <ul>
+              <li>Fotokopi Akta Kelahiran (2 lembar)</li>
+              <li>Fotokopi Kartu Keluarga (2 lembar)</li>
+              <li>Fotokopi KTP Orang Tua (2 lembar)</li>
+              <li>Pas foto 3x4 (4 lembar)</li>
+              <li>Surat Keterangan Lulus SD/MI</li>
+              <li>Rapor kelas 4,5,6 (jalur prestasi)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Pertanyaan Umum (FAQ)</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-content">
+            <div class="faq-item">
+              <strong>Apakah ada tes masuk?</strong>
+              <p>Ya, untuk semua jalur kecuali afirmasi.</p>
+            </div>
+            <div class="faq-item">
+              <strong>Kapan pengumuman hasil?</strong>
+              <p>18 Juli 2026 via website.</p>
+            </div>
+            <div class="faq-item">
+              <strong>Berapa biaya pendaftaran?</strong>
+              <p>Rp 250.000.</p>
             </div>
           </div>
         </div>
@@ -196,7 +195,10 @@
       <div class="footer-content">
         <div class="footer-section">
           <h4>Sekolah Global Nusantara</h4>
-          <p>Membangun karakter unggul berwawasan global.</p>
+          <p>
+            Membangun karakter unggul berwawasan global dengan nilai-nilai
+            kebangsaan.
+          </p>
         </div>
         <div class="footer-section">
           <h4>Kontak Kami</h4>
@@ -216,6 +218,9 @@
     </footer>
 
     <div id="toast" class="toast"></div>
+    <button id="backToTop" class="back-to-top" title="Kembali ke atas">
+      ↑
+    </button>
 
     <script src="asset/javascript/script.js"></script>
   </body>
