@@ -80,7 +80,7 @@ function initAccordion() {
 }
 
 var currentStep = 1;
-var totalSteps = 3;
+var totalSteps = 4;
 
 function updateFormSteps() {
     for (var i = 1; i <= totalSteps; i++) {
@@ -101,7 +101,7 @@ function goToStep(step) {
     if (step > currentStep && !validateCurrentStep()) return;
     currentStep = step;
     updateFormSteps();
-    if (currentStep === 3) updatePreview();
+    if (currentStep === 4) updatePreview();
 }
 
 function validateCurrentStep() {
@@ -119,25 +119,145 @@ function validateCurrentStep() {
     return true;
 }
 
+var uploadedFiles = { foto: null, ijazah: null, kk: null };
+
+function initFileUpload() {
+    var fotoInput = document.getElementById('foto');
+    if (fotoInput) {
+        fotoInput.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    showToast('Ukuran file maksimal 2MB!', 'error');
+                    this.value = '';
+                    return;
+                }
+                uploadedFiles.foto = file.name;
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var preview = document.getElementById('fotoPreview');
+                    var img = document.getElementById('fotoImg');
+                    img.src = event.target.result;
+                    preview.classList.add('show');
+                    var previewFoto = document.getElementById('preview_foto');
+                    if (previewFoto) previewFoto.textContent = file.name;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    var ijazahInput = document.getElementById('ijazah');
+    if (ijazahInput) {
+        ijazahInput.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    showToast('Ukuran file maksimal 2MB!', 'error');
+                    this.value = '';
+                    return;
+                }
+                uploadedFiles.ijazah = file.name;
+                if (file.type.startsWith('image/')) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        var preview = document.getElementById('ijazahPreview');
+                        var img = document.getElementById('ijazahImg');
+                        img.src = event.target.result;
+                        preview.classList.add('show');
+                    };
+                    reader.readAsDataURL(file);
+                }
+                var previewIjazah = document.getElementById('preview_ijazah');
+                if (previewIjazah) previewIjazah.textContent = file.name;
+            }
+        });
+    }
+
+    var kkInput = document.getElementById('kk');
+    if (kkInput) {
+        kkInput.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    showToast('Ukuran file maksimal 2MB!', 'error');
+                    this.value = '';
+                    return;
+                }
+                uploadedFiles.kk = file.name;
+                if (file.type.startsWith('image/')) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        var preview = document.getElementById('kkPreview');
+                        var img = document.getElementById('kkImg');
+                        img.src = event.target.result;
+                        preview.classList.add('show');
+                    };
+                    reader.readAsDataURL(file);
+                }
+                var previewKk = document.getElementById('preview_kk');
+                if (previewKk) previewKk.textContent = file.name;
+            }
+        });
+    }
+}
+
 function updatePreview() {
     var name = document.getElementById('fullname');
     var nik = document.getElementById('nik');
     var tempat = document.getElementById('tempat_lahir');
     var tgl = document.getElementById('tanggal_lahir');
+    var gender = document.getElementById('jenis_kelamin');
+    var agama = document.getElementById('agama');
     var jalurSelect = document.getElementById('jalur');
     var asal = document.getElementById('asal_sekolah');
+    var nisn = document.getElementById('nisn');
+    var prestasi = document.getElementById('prestasi');
 
     var pName = document.getElementById('preview_nama');
     var pNik = document.getElementById('preview_nik');
     var pLahir = document.getElementById('preview_lahir');
+    var pGender = document.getElementById('preview_gender');
+    var pAgama = document.getElementById('preview_agama');
     var pJalur = document.getElementById('preview_jalur');
     var pSekolah = document.getElementById('preview_sekolah');
+    var pNisn = document.getElementById('preview_nisn');
+    var pPrestasi = document.getElementById('preview_prestasi');
 
     if (pName) pName.textContent = name ? (name.value.trim() || '-') : '-';
     if (pNik) pNik.textContent = nik ? (nik.value.trim() || '-') : '-';
     if (pLahir) pLahir.textContent = (tempat?.value.trim() || '-') + ', ' + (tgl?.value || '-');
+    if (pGender) pGender.textContent = gender ? (gender.options[gender.selectedIndex]?.text || '-') : '-';
+    if (pAgama) pAgama.textContent = agama ? (agama.options[agama.selectedIndex]?.text || '-') : '-';
     if (pJalur && jalurSelect) pJalur.textContent = jalurSelect.options[jalurSelect.selectedIndex]?.text || '-';
     if (pSekolah) pSekolah.textContent = asal ? (asal.value.trim() || '-') : '-';
+    if (pNisn) pNisn.textContent = nisn ? (nisn.value.trim() || '-') : '-';
+    if (pPrestasi) pPrestasi.textContent = prestasi ? (prestasi.value.trim() || '-') : '-';
+}
+
+function printBukti() {
+    var printContent = document.getElementById('printArea').cloneNode(true);
+    var printWindow = window.open('', '_blank');
+    printWindow.document.write('<!DOCTYPE html><html><head><title>Bukti Pendaftaran - SGN</title>');
+    printWindow.document.write('<style>');
+    printWindow.document.write(`
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #0a2b4e; text-align: center; }
+        h2 { color: #1a5f7a; border-bottom: 2px solid #1a5f7a; padding-bottom: 5px; }
+        .preview-section { margin-bottom: 20px; }
+        .preview-item { display: flex; padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+        .preview-label { width: 180px; font-weight: bold; }
+        .footer { margin-top: 30px; text-align: center; font-size: 12px; color: #666; border-top: 1px solid #ccc; padding-top: 10px; }
+        @media print { body { margin: 0; padding: 0; } }
+    `);
+    printWindow.document.write('</style></head><body>');
+    printWindow.document.write('<h1>Sekolah Global Nusantara</h1>');
+    printWindow.document.write('<h2>Bukti Pendaftaran PPDB 2026/2027</h2>');
+    printWindow.document.write(printContent.innerHTML);
+    printWindow.document.write('<div class="footer">Dicetak pada: ' + new Date().toLocaleString('id-ID') + '</div>');
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
 }
 
 function handleFormSubmit() {
@@ -153,10 +273,26 @@ function handleFormSubmit() {
     if (!confirmBox.checked) { showToast('Silakan konfirmasi data!', 'error'); return; }
 
     showToast('Pendaftaran BERHASIL! Selamat ' + name.value.trim(), 'success');
+    
+    var printBtn = document.createElement('button');
+    printBtn.textContent = 'Cetak Bukti Pendaftaran';
+    printBtn.className = 'print-btn';
+    printBtn.onclick = function() { printBukti(); };
+    
+    var formNav = document.querySelector('.form-navigation');
+    if (formNav && !document.querySelector('.print-btn')) {
+        formNav.appendChild(printBtn);
+    }
+    
     document.getElementById('registrationForm').reset();
     currentStep = 1;
     updateFormSteps();
     if (submitBtn) submitBtn.disabled = true;
+    
+    document.querySelectorAll('.preview-container').forEach(function(el) {
+        el.classList.remove('show');
+    });
+    uploadedFiles = { foto: null, ijazah: null, kk: null };
 }
 
 function initForm() {
@@ -282,7 +418,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initBackToTop();
     initModal();
 
-    if (document.getElementById('registrationForm')) initForm();
+    if (document.getElementById('registrationForm')) {
+        initForm();
+        initFileUpload();
+    }
 
     var pageHeader = document.querySelector('.page-header');
     if (pageHeader) {
