@@ -301,6 +301,34 @@ main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { transform: translateY(-5px); background: linear-gradient(135deg, #1a5f7a, #0d3b5e); }
 
+/* ========== PREVIEW UPLOAD BERKAS ========== */
+.preview-container { margin-top: 0.5rem; display: none; }
+.preview-container img { max-width: 150px; max-height: 150px; border-radius: 8px; border: 1px solid #e2e8f0; padding: 0.25rem; }
+.preview-container.show { display: block; }
+.form-hint { font-size: 0.7rem; color: var(--gray); margin-top: 0.25rem; display: block; }
+
+/* ========== PRINT BUTTON ========== */
+.print-btn {
+    background: linear-gradient(135deg, #0a2b4e, #1a5f7a);
+    color: white; border: none; border-radius: 50px;
+    padding: 0.5rem 1rem; cursor: pointer; font-weight: 600;
+    margin-left: 1rem; transition: all 0.3s;
+}
+.print-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+/* ========== PRINT STYLE ========== */
+@media print {
+    header, nav, footer, .form-progress, .form-navigation, .checkbox-group,
+    .back-to-top, .toast, .btn-submit-modern, .print-btn {
+        display: none !important;
+    }
+    .form-container-modern { box-shadow: none; padding: 0; margin: 0; }
+    .data-preview { background: white; padding: 0; }
+    .preview-item { break-inside: avoid; }
+    body { background: white; }
+    main { margin: 0; padding: 0; }
+}
+
 /* ========== TOAST ========== */
 .toast {
     visibility: hidden; min-width: 300px; background: #333; color: white;
@@ -319,7 +347,7 @@ footer { background: var(--primary-dark); color: white; margin-top: 3rem; }
 .footer-section p { margin: 0.5rem 0; opacity: 0.8; }
 .footer-bottom { text-align: center; padding: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
 
-/* ========== RESPONSIVE (GABUNGAN) ========== */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     .header-container { flex-direction: column; text-align: center; }
     nav ul { justify-content: center; }
@@ -334,13 +362,11 @@ footer { background: var(--primary-dark); color: white; margin-top: 3rem; }
     .card-number { min-width: auto; }
     main { padding: 0 1rem; }
     
-    /* Marquee responsive */
     .testimonial-marquee::before, .testimonial-marquee::after { width: 40px; }
     .testimonial-card-marquee { width: 280px; padding: 1.25rem; }
     .testimonial-card-marquee .avatar { width: 35px; height: 35px; font-size: 0.75rem; }
     .marquee-list { gap: 1rem; animation-duration: 20s; }
     
-    /* Modal & Back to Top responsive */
     .modal-content { width: 95%; }
     .modal-body { padding: 1rem; font-size: 0.85rem; }
     .modal-footer { padding: 0.75rem 1rem; }
